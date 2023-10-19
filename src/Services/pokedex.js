@@ -1,7 +1,19 @@
 import axios from "axios";
 
-function getPokemon(){
-    return axios.get("https://pokeapi.co/api/v2/pokemon/")
+function getPokemon(pokemonAffiche, pokemonPerPage){
+    return axios.get("https://pokeapi.co/api/v2/pokemon-species?offset="+pokemonAffiche+"&limit="+pokemonPerPage)
 }
 
-export default {getPokemon};
+function getPokemonById(id) {
+    return axios.get("https://pokeapi.co/api/v2/pokemon-species/"+id+"/")
+}
+
+function getPokemonByIdBis(id){
+    return axios.get("https://pokeapi.co/api/v2/pokemon/"+id)
+}
+
+export default {
+    getPokemon,
+    getPokemonById,
+    getPokemonByIdBis,
+};
